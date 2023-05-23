@@ -1,14 +1,21 @@
 <h1>My tasks</h1>
+<ul>
+
 <% @tasks.each do |task| %>
 
 <li>
-    <%= check_box_tag :completed%>
-    <%= link_to "#{task.title}", show_path(task.id)%>
+  <% if task.completed? %>
+    <i class="fa-regular fa-square-check"></i>
+  <% else %>
+    <i class="fa-regular fa-square"></i>
+  <% end %>    <%= link_to "#{task.title}", show_path(task.id)%>
 
-    <%= link_to "delete", destroy_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-      <i class="fa fa-trash fa-2x"></i>
-  <% end %>
+    <%= link_to destroy_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+       <i class="fa fa-trash fa-2x"></i>
+    <% end %>
+
 </li>
 
-
+<% end %>
 <p><%= link_to "Add new task", create_path%></p>
+</ul>
