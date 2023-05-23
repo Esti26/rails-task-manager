@@ -2,10 +2,12 @@
 <% @tasks.each do |task| %>
 
 <li>
-  <%= link_to "#{task.title}", show_path(task.id)%>
-  <%= link_to "delete", destroy_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    <%= check_box_tag :completed%>
+    <%= link_to "#{task.title}", show_path(task.id)%>
 
-<% end %>
+    <%= link_to "delete", destroy_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      <i class="fa fa-trash fa-2x"></i>
+  <% end %>
 </li>
 
 
