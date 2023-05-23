@@ -1,0 +1,10 @@
+<h1> <%=@task.title%></h1>
+<p> <%=@task.details %> </p>
+<p> <%=@task.completed %> </p>
+
+<div class=btn></div>
+
+<%# <form method="get" class="button_to" edit_path>
+  <div><input  value="Update" type="submit" /></div>
+</form> %>
+<%= link_to "Edit", edit_path(@task), class: "btn btn-primary" %>
